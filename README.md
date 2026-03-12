@@ -1,33 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Extractor — AI Text Extraction
+
+Upload any **PDF or image** and extract all text instantly using **Gemini 2.0 Flash**.
+
+## Features
+
+- Drag-and-drop or click-to-upload (PDF, JPEG, PNG, WEBP, GIF, HEIC)
+- Up to 10 MB per file
+- Animated scanline UI during processing
+- One-click copy of extracted text
+- Client + server-side file validation
+- Built with Next.js 16, Tailwind CSS v4, and `@google/genai`
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| LLM | Gemini 2.0 Flash via `@google/genai` |
+| Styling | Tailwind CSS v4 |
+| Fonts | Instrument Serif · DM Sans · JetBrains Mono |
+| Runtime | Node.js |
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone & install
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/content-extraction.git
+cd content-extraction
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Set up environment variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cp .env.local.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open `.env.local` and add your Gemini API key:
 
-## Learn More
+```
+GEMINI_API_KEY=your_gemini_api_key_here
+```
 
-To learn more about Next.js, take a look at the following resources:
+Get a free key at [aistudio.google.com/apikey](https://aistudio.google.com/apikey).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Optionally set the public URL (used for OG meta tags):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+NEXT_PUBLIC_APP_URL=https://your-domain.com
+```
+
+### 3. Run locally
+
+```bash
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+## Deployment
+
+### Vercel (recommended)
+
+1. Push your repo to GitHub
+2. Import the project at [vercel.com/new](https://vercel.com/new)
+3. Add `GEMINI_API_KEY` (and optionally `NEXT_PUBLIC_APP_URL`) in the Vercel environment variables panel
+4. Deploy
+
+## Project Structure
+
+```
+app/
+  api/extract/route.ts   # POST handler — Gemini text extraction
+  icon.svg               # Favicon
+  opengraph-image.tsx    # Dynamic OG image (1200×630)
+  layout.tsx             # Root layout + SEO metadata
+  page.tsx               # Main upload UI
+  globals.css            # Custom animations & scrollbar
+.env.local.example       # Environment variable template
+```
+
+## License
+
+MIT
 
 ## Deploy on Vercel
 

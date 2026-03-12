@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="8" fill="#07080F"/>
+  <!-- Document body -->
+  <path fill="#00E5A0" d="M8 7a2 2 0 0 1 2-2h8l6 6v14a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V7z"/>
+  <!-- Folded corner cutout -->
+  <path fill="#07080F" d="M18 5 24 11h-4a2 2 0 0 1-2-2V5z"/>
+  <!-- Text lines (dark cutouts) -->
+  <rect fill="#07080F" x="11" y="14" width="10" height="1.5" rx="0.75"/>
+  <rect fill="#07080F" x="11" y="17.5" width="10" height="1.5" rx="0.75"/>
+  <rect fill="#07080F" x="11" y="21" width="6" height="1.5" rx="0.75"/>
+</svg>
